@@ -119,7 +119,56 @@ print(f"\nCongratulations, {name}! You've chosen {starter_pokemon.name} as your 
 
 print("\nNow that you've chosen your starter Pokemon, it'e time to fight my grandson")
 
+rival_name = input("\nWhat was his name again? ")
+
 # start the battle with the grandson
+
+rival_starter = None
+if isinstance(starter_pokemon, Charmander):
+    rival_starter = Squirtle()
+elif isinstance(starter_pokemon, Squirtle):
+    rival_starter = Bulbasaur()
+elif isinstance(starter_pokemon, Bulbasaur):
+    rival_starter = Charmander()
+elif isinstance(starter_pokemon, Pikachu):
+    rival_starter = Eevee()
+elif isinstance(starter_pokemon, Eevee):
+    rival_starter = Pikachu()
+else:
+    print("Error: Invalid starter Pokemon.")
+    input("Press Enter to exit...")
+    sys.exit()
+
+
+rival = Character(rival_name, Gender.MALE, rival_starter)
+
+print(f"\nYour rival, {rival.name}, has chosen {rival_starter.name} as his starter Pokemon!")
+
+print(f"\n{player.name} sent out {player.party[0].name}!")
+print(f"{rival.name} sent out {rival.party[0].name}!")
+
+player_current_pokemon = player.party[0]
+rival_current_pokemon = rival.party[0]
+
+turn_order = []
+if player_current_pokemon.base_stats["Speed"] > rival_current_pokemon.base_stats["Speed"]:
+    turn_order = [player, rival]
+elif player_current_pokemon.base_stats["Speed"] < rival_current_pokemon.base_stats["Speed"]:
+    turn_order = [rival, player]
+elif player_current_pokemon.base_stats["Speed"] == rival_current_pokemon.base_stats["Speed"]:
+    luck = random.randint(0,1)
+    if luck == 0:
+        turn_order = [rival, player]
+    elif luck == 1:
+        turn_order = [player, rival]
+    else:
+        print("Error: Invalid luck value.")
+        input("Press Enter to exit...")
+        sys.exit()
+else:
+    print("Error: Invalid speed values.")
+    input("Press Enter to exit...")
+    sys.exit()
 
 
 
