@@ -11,12 +11,14 @@ class Character:
     def __init__(self, name, gender, party=None):
         self.name = name
         self.gender = gender
-        self.party = party
+        self.party = party if party is not None else []
 
 
 class Player(Character):
     def __init__(self, name, gender, party=None):
-        super().__init__()
+        super().__init__(name, gender, party)
+        self.badges = []
+        self.money = 0
 
 
 class Pokemon:
@@ -118,5 +120,7 @@ print(f"\nCongratulations, {name}! You've chosen {starter_pokemon.name} as your 
 print("\nNow that you've chosen your starter Pokemon, it'e time to fight my grandson")
 
 # start the battle with the grandson
+
+
 
 
