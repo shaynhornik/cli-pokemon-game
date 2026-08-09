@@ -1,3 +1,5 @@
+import enum
+
 class Pokemon:
     def __init__ (self, name, type, moves, base_stats, level):
         self.name = name
