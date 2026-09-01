@@ -1,38 +1,39 @@
 #This module contains a dict of moves and functions related to moves.
+import types_chart
 
 MOVES = {
     "scratch": {
-        "type": "normal",
+        "type": types_chart.Type.NORMAL,
         "power": 40,
         "accuracy": 100
     },
     "tackle": {
-        "type": "normal",
+        "type": types_chart.Type.NORMAL,
         "power": 40,
         "accuracy": 100
     },
     "ember": {
-        "type": "fire",
+        "type": types_chart.Type.FIRE,
         "power": 40,
         "accuracy": 100
     },
     "water gun": {
-        "type": "water",
+        "type": types_chart.Type.WATER,
         "power": 40,
         "accuracy": 100
     },
     "vine whip": {
-        "type": "grass",
+        "type": types_chart.Type.GRASS,
         "power": 45,
         "accuracy": 100
     },
     "thunder shock": {
-        "type": "electric",
+        "type": types_chart.Type.ELECTRIC,
         "power": 40,
         "accuracy": 100
     },
     "quick attack": {
-        "type": "normal",
+        "type": types_chart.Type.NORMAL,
         "power": 40,
         "accuracy": 100
     },
